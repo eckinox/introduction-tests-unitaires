@@ -1,17 +1,16 @@
 # Atelier d'introduction aux tests unitaires (en PHP)
 
-<div style="padding: 1em 1.5em; margin: 3em 0; border: 1px solid; box-sizing: border-box;">
-	<strong style="font-size: 1.5em">📚 Avant de commencer...</strong><br>
-	<p>
-		Ce repository est un atelier explicatif sur les tests automatisés, et plus 
-		spéciquemment sur les tests unitaires.
-	</p>
-	<p>
-		Avant de commencer votre lecture, téléchargez ce repository sur votre ordinateur
-		ou sur un serveur où PHP est installé, et installez les dépendances PHP en roulant 
-		la commande <code>composer install</code>.
-	</p>
-</div>
+> **📚 Avant de commencer...**  
+> Ce repository est un atelier explicatif sur les tests automatisés, et plus 
+> spéciquemment sur les tests unitaires.
+> 
+> Avant de commencer votre lecture, téléchargez ce repository sur votre ordinateur
+> ou sur un serveur où PHP est installé, et installez les dépendances PHP en roulant 
+> la commande 
+> ```
+> composer install.
+> ```
+> 
 
 ## Qu'est-ce qu'un test unitaire ?
 
@@ -47,11 +46,9 @@ Voici quelques types d'assertions communes:
 - `cet array` contient l'élément `X`
 
 
-<div style="padding: 1em 1.5em; margin: 3em 0; border: 1px solid; box-sizing: border-box;">
-	<strong style="font-size: 1.5em">📚 Exercice #1</strong><br>
-	<p>À ce point dans la lecture, vous pouvez passer à <a href="blob/main/docs/exercice-1.md">l'exercice pratique #1.</a></p>
-	<p>Vous pourrez continuer la lecture/formation après cet exercice.</p>
-</div>
+> **📚 Exercice #1**  
+> À ce point dans la lecture, vous pouvez passer à [l'exercice pratique #1](docs/exercice-1.md).  
+> Vous pourrez continuer la lecture/formation après cet exercice.
 
 
 ## Qu'est-ce que je dois tester? À quel point mes tests doivent-ils être complets?
