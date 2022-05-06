@@ -7,10 +7,13 @@
 > Avant de commencer votre lecture, téléchargez ce repository sur votre ordinateur
 > ou sur un serveur où PHP est installé, et installez les dépendances PHP en roulant 
 > la commande 
-> ```
-> composer install.
+> 
+> ```bash
+> composer install
 > ```
 > 
+
+---
 
 ## Qu'est-ce qu'un test unitaire ?
 
@@ -45,10 +48,128 @@ Voici quelques types d'assertions communes:
 - `ce nombre` est plus petit que `X`
 - `cet array` contient l'élément `X`
 
+### PHPUnit
 
-> **📚 Exercice #1**  
-> À ce point dans la lecture, vous pouvez passer à [l'exercice pratique #1](docs/exercice-1.md).  
-> Vous pourrez continuer la lecture/formation après cet exercice.
+Pour tirer avantage des tests, il faut qu'on rédige des tests, mais il faut également que
+ces tests soient exécutés et qu'on puisse consulter les résultats! C'est là qu'entrent en
+jeu les testing frameworks.
+
+Dans le cas d'une codebase PHP, le framework le plus commun est [PHPUnit](https://phpunit.de/).
+
+Si vous êtes dans un projet Symfony, PHPUnit devrait déjà être installé et avoir une configuration
+de base pour votre projet. Sinon, vous pouvez l'installer et le configurer en suivant la 
+documentation officielle.
+
+#### Cas de test dans PHPUnit
+
+Avec PHPUnit, on place généralement les tests dans un dossier `tests` à la racine de votre projet.
+
+Une bonne pratique est généralement de séparer les tests par type dans ce dossier. Il y a plusieurs
+manières différentes de faire cela, mais en prenant en compte que le projet risque d'éventuellement
+avoir plusieurs types de tests, voici une suggestion de structure assez complète:
+
+```
+tests
+	Backend
+		Unit
+			> your PHP unit tests here, with the same file structure as your codebase
+		Integration
+			> your PHP integration tests here
+
+	Frontend
+		Unit
+			> your JS unit tests here, with the same file structure as your codebase
+		Integration
+			> your JS integration tests here
+
+	EndToEnd
+		> your E2E tests here
+
+	fixtures
+		> store any files needed for your tests here
+```
+
+### Exécuter les tests avec PHPUnit
+
+Une fois PHPUnit installé, configuré, et vos tests rédigés, vous pouvez exécuter vos tests en
+roulant PHPUnit.
+
+Si vous l'avez installé avec Composer, la commande devrait être ceci:
+
+```bash
+./vendor/bin/phpunit
+```
+
+Par défaut, PHPUnit va rouler les tests dans le dossier indiqué par votre configuration. Vous
+pouvez spécifiez quel(s) test(s) rouler en lui donnant le path d'un dossier ou d'un fichier. 
+
+Ex.:
+
+```bash
+./vendor/bin/phpunit tests/Unit/Validator
+```
+
+ou:
+
+```bash
+./vendor/bin/phpunit tests/Unit/Validator/PhoneNumberValidatorTest.php
+```
+
+ou encore:
+
+```bash
+./vendor/bin/phpunit tests/Unit/*
+```
+
+
+---
+
+## 📚✨ Exercice #1 ✨📚
+À ce point dans l'atelier, vous pouvez passer à [l'exercice pratique #1](docs/exercice-1.md).  
+Vous pourrez continuer la lecture/formation après cet exercice.
+
+---
+
+
+## Fixtures
+
+Il est possible que vous ayez besoin de fichiers ou de données quelconques pour faire des tests.
+
+Vous pourriez générer des données aléatoirement, mais cela ferait en sorte que votre test
+serait différent d'une exécution à l'autre. Et ça, on veut pas ça.
+
+Afin de vous assurer que vous testez toujours la même chose, vous pouvez créer et ajouter
+à votre projet des fichiers de test. Vous pouvez également utilisez des librairies comme 
+[Foundry](https://github.com/zenstruck/foundry) pour générer des objets de test facilement. 
+
+Ces fichiers et données dont la seule fonction sera d'être utilisés pour exécuter vos tests
+s'appellent des Fixtures. 
+
+## Mocks
+
+Dans certains cas, vous allez vouloir tester du code qui a des dépendances ou des liens 
+avec d'autres classes/services/APIs/etc. 
+
+Étant donné que le rôle d'un test unitaire est de tester une seule unité de code en isolation,
+vous devrez éliminer les interférences/intéractions avec ces autres services.
+
+Pour ce faire, il est pratique commune de créer ce qu'on appelle des **mocks**.
+
+En gros, un mock est une fausse version d'un service que vous pouvez configurer afin
+qu'il fonctionne comme vous le désirez. Cela permet de simuler les intéractions avec des
+services réels tout en assurant que les valeurs retournées sont prévisibles et constantes.
+
+Les **stubs** fonctionnent essentiellement de la même manière, mais sont généralement moins
+dynamiques que les **mocks**. 
+
+
+---
+
+## 📚✨ Exercice #2 ✨📚
+À ce point dans l'atelier, vous pouvez passer à [l'exercice pratique #2](docs/exercice-2.md).  
+Vous pourrez continuer la lecture/formation après cet exercice.
+
+---
 
 
 ## Qu'est-ce que je dois tester? À quel point mes tests doivent-ils être complets?

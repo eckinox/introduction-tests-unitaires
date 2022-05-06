@@ -20,7 +20,8 @@ namespace App\Validator;
  * - Parenthesized area code (`(418) 321-9012`)
  * - Any combination of these (ex.: `+1.418.321-9012` )
  *
- * The number may be followed by notes, extensions, or anything other string without any validation.
+ * If the `$allowSuffix` parameter is set to true, the number may be 
+ * followed by notes, extensions, or anything other string.
  */
 class PhoneNumberValidator
 {
