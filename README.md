@@ -125,8 +125,8 @@ ou encore:
 ---
 
 ## 📚✨ Exercice #1 ✨📚
-À ce point dans l'atelier, vous pouvez passer à [l'exercice pratique #1](docs/exercice-1.md).  
-Vous pourrez continuer la lecture/formation après cet exercice.
+📚 À ce point dans l'atelier, vous pouvez passer à [l'exercice pratique #1](docs/exercice-1.md).  
+📚 Vous pourrez continuer la lecture/formation après cet exercice.
 
 ---
 
@@ -166,8 +166,8 @@ dynamiques que les **mocks**.
 ---
 
 ## 📚✨ Exercice #2 ✨📚
-À ce point dans l'atelier, vous pouvez passer à [l'exercice pratique #2](docs/exercice-2.md).  
-Vous pourrez continuer la lecture/formation après cet exercice.
+📚 À ce point dans l'atelier, vous pouvez passer à [l'exercice pratique #2](docs/exercice-2.md).  
+📚 Vous pourrez continuer la lecture/formation après cet exercice.
 
 ---
 
