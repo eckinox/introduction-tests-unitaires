@@ -70,23 +70,23 @@ avoir plusieurs types de tests, voici une suggestion de structure assez complèt
 
 ```
 tests
-	Backend
-		Unit
-			> your PHP unit tests here, with the same file structure as your codebase
-		Integration
-			> your PHP integration tests here
+  Backend
+    Unit
+      > your PHP unit tests here, with the same file structure as your codebase
+    Integration
+      > your PHP integration tests here
 
-	Frontend
-		Unit
-			> your JS unit tests here, with the same file structure as your codebase
-		Integration
-			> your JS integration tests here
+  Frontend
+    Unit
+      > your JS unit tests here, with the same file structure as your codebase
+    Integration
+      > your JS integration tests here
 
-	EndToEnd
-		> your E2E tests here
+  EndToEnd
+    > your E2E tests here
 
-	fixtures
-		> store any files needed for your tests here
+  fixtures
+    > store any files needed for your tests here
 ```
 
 ### Exécuter les tests avec PHPUnit
