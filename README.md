@@ -145,7 +145,7 @@ Afin de vous assurer que vous testez toujours la même chose, vous pouvez créer
 Ces fichiers et données dont la seule fonction sera d'être utilisés pour exécuter vos tests
 s'appellent des Fixtures. 
 
-## Mocks
+## Mocks & stubs
 
 Dans certains cas, vous allez vouloir tester du code qui a des dépendances ou des liens 
 avec d'autres classes/services/APIs/etc. 
@@ -153,14 +153,56 @@ avec d'autres classes/services/APIs/etc.
 Étant donné que le rôle d'un test unitaire est de tester une seule unité de code en isolation,
 vous devrez éliminer les interférences/intéractions avec ces autres services.
 
-Pour ce faire, il est pratique commune de créer ce qu'on appelle des **mocks**.
+Pour ce faire, il est pratique commune de créer ce qu'on appelle des **mocks** et/ou des **stubs**.
 
-En gros, un mock est une fausse version d'un service que vous pouvez configurer afin
-qu'il fonctionne comme vous le désirez. Cela permet de simuler les intéractions avec des
-services réels tout en assurant que les valeurs retournées sont prévisibles et constantes.
+En gros, les mocks et les stubs sont une fausse version d'un service que vous pouvez configurer 
+afin qu'il fonctionne comme vous le désirez.
 
-Les **stubs** fonctionnent essentiellement de la même manière, mais sont généralement moins
-dynamiques que les **mocks**. 
+### Stub
+Les stubs permettent de simuler les intéractions avec des services réels tout en assurant que 
+les valeurs retournées sont prévisibles et constantes.
+
+Par exemple, si vous avez une classe qui a comme dépendance un service `GoogleApi`, dont la méthode 
+`search(string $searchTerms)` fait une recherche sur l'API de Google et vous retourne les résultats, 
+vous pourriez créer un stub du service `GoogleApi` qui retourne toujours le même résultat lorsqu'on 
+appelle sa méthode `search()`. 
+
+Ainsi, votre test ne dépend plus de l'API externe de Google: vous testez seulement le comportement
+de votre application. 
+
+C'est donc plus rapide et plus stable. 
+
+### Mock
+Les **mocks** fonctionnent essentiellement de la même manière que les stubs, mais ils permettent
+également de faire des assertions sur les intéractions avec la classe/méthode qui est mockée. 
+
+Dans le même exemple du `GoogleApi`, vous pourriez créez un mock au lieu d'un stub afin de valider 
+si la méthode `GoogleApi::search()` est belle et bien appelée une fois (pas plus, pas moins) par 
+votre service.
+
+### Comment créer des mocks et des stubs
+Il y a plusieurs manières de créer des mocks et des stubs. 
+Les plus communes pour les tests unitaires en PHP sont:
+
+- D'utiliser [documentation sur les mock & stubs de PHPUnit](https://phpunit.readthedocs.io/en/9.5/test-doubles.html).
+- D'utiliser une librairie / un framework de mock/stub alternatif comme [Mockery](https://github.com/mockery/mockery).
+
+### Le point négatif des mocks/stubs
+Les mocks/stubs ont deux problèmes principaux: 
+
+- Créer des mocks/stubs peut être long.
+- Si le service externe que vous avez mocké/stubbé change, vos tests unitaires va continuer de rouler sans problème, 
+  alors qu'en réalité votre application pourrait être brisée.
+
+Le 2e point est une des principales raisons pour lesquelles les tests unitaires ne donnent
+pas aussi confiance que des tests E2E. 
+
+Il faut donc garder en tête que plus on crée de mocks/stubs, moins nos tests réflètent la réalité,
+et donc moins ils devraient nous donner confiance en notre application.
+
+Ça peut donc valoir la peine de créer des tests d'intégrations ou des tests E2E au lieu de 
+des tests unitaires qui dépendent beaucoup sur des stubs/mocks.
+
 
 
 ---
