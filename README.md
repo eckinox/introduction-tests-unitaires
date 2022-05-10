@@ -126,7 +126,8 @@ ou encore:
 
 ## 📚✨ Exercice #1 ✨📚
 📚 À ce point dans l'atelier, vous pouvez passer à [l'exercice pratique #1](docs/exercice-1.md).  
-📚 Vous pourrez continuer la lecture/formation après cet exercice.
+📚 Vous pourrez continuer la lecture/formation après cet exercice.  
+📚 Une fois que vous aurez terminé, [consultez une solution suggérée](./solutions/README.md).
 
 ---
 
@@ -210,6 +211,7 @@ des tests unitaires qui dépendent beaucoup sur des stubs/mocks.
 ## 📚✨ Exercice #2 ✨📚
 📚 À ce point dans l'atelier, vous pouvez passer à [l'exercice pratique #2](docs/exercice-2.md).  
 📚 Vous pourrez continuer la lecture/formation après cet exercice.
+📚 Une fois que vous aurez terminé, [consultez une solution suggérée](./solutions/README.md).
 
 ---
 
